@@ -8,6 +8,7 @@
 return [
     false, // $matchHost
     [ // $staticRoutes
+        '/calculate-travel' => [[['_route' => 'calculate_travel', '_controller' => 'App\\Controller\\CalculateTravelController::calculatePrice'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
