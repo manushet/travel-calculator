@@ -20,8 +20,6 @@ class TravelPriceCalculator
     {
         $this->ageDiscount->setNext($this->earlyBookingDiscount);
 
-        $finalPriceEnquiry = $this->ageDiscount->apply($priceEnquiry);
-
-        return $finalPriceEnquiry;
+        return $this->ageDiscount->apply($priceEnquiry);
     }
 }

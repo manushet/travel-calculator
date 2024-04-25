@@ -47,7 +47,7 @@ class AgeDiscount extends AbstractDiscount
 
             $priceEnquiry->setFinalPrice($finalPrice);
 
-            break;
+            return parent::apply($priceEnquiry);
         };
 
         return parent::apply($priceEnquiry);
