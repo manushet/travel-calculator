@@ -35,7 +35,7 @@ class CalculateTravelControllerTest extends WebTestCase
             '/calculate-travel?basePrice=10000&participantBirthday=2000&travelStart=2025-01-10&paymentDate=2024-10-10'
         );
 
-        $expectedResponseContent = '{"error":"Invalid Participant Birthday date format."}';
+        $expectedResponseContent = '{"errors":"Invalid Participant Birthday date format."}';
 
         $actualResponse = $client->getResponse()->getContent();
 
@@ -53,7 +53,7 @@ class CalculateTravelControllerTest extends WebTestCase
             '/calculate-travel?basePrice=efe&participantBirthday=2018-09-18&travelStart=2025-01-10&paymentDate=2024-10-10'
         );
 
-        $expectedResponseContent = '{"error":"Invalid Base Price value."}';
+        $expectedResponseContent = '{"errors":"Invalid Base Price value."}';
 
         $actualResponse = $client->getResponse()->getContent();
 

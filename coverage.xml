@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1714032363">
-  <project timestamp="1714032363">
+<coverage generated="1714033678">
+  <project timestamp="1714033678">
     <file name="/app/src/Controller/CalculateTravelController.php">
       <class name="App\Controller\CalculateTravelController" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
@@ -55,7 +55,7 @@
       <line num="46" type="stmt" count="3"/>
       <line num="48" type="stmt" count="3"/>
       <line num="50" type="stmt" count="3"/>
-      <line num="53" type="stmt" count="8"/>
+      <line num="53" type="stmt" count="5"/>
       <metrics loc="56" ncloc="56" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="23" coveredelements="23"/>
     </file>
     <file name="/app/src/Discount/DiscountInterface.php">
@@ -115,17 +115,17 @@
       <class name="App\EventListener\ExceptionListener" namespace="global">
         <metrics complexity="2" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="10" coveredelements="10"/>
       </class>
-      <line num="15" type="method" name="__invoke" visibility="public" complexity="2" crap="2" count="2"/>
-      <line num="17" type="stmt" count="2"/>
-      <line num="19" type="stmt" count="2"/>
-      <line num="21" type="stmt" count="2"/>
+      <line num="14" type="method" name="__invoke" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="18" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="22" type="stmt" count="2"/>
       <line num="23" type="stmt" count="2"/>
       <line num="24" type="stmt" count="2"/>
-      <line num="25" type="stmt" count="2"/>
+      <line num="26" type="stmt" count="2"/>
       <line num="27" type="stmt" count="2"/>
-      <line num="28" type="stmt" count="2"/>
-      <line num="31" type="stmt" count="2"/>
-      <metrics loc="34" ncloc="34" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="10" coveredelements="10"/>
+      <line num="30" type="stmt" count="2"/>
+      <metrics loc="33" ncloc="33" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="10" coveredelements="10"/>
     </file>
     <file name="/app/src/Exception/InvalidEnquiryParametersException.php">
       <class name="App\Exception\InvalidEnquiryParametersException" namespace="global">
@@ -176,15 +176,14 @@
     </file>
     <file name="/app/src/Service/TravelPriceCalculator.php">
       <class name="App\Service\TravelPriceCalculator" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
       </class>
       <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="10"/>
       <line num="17" type="stmt" count="10"/>
       <line num="19" type="method" name="calculate" visibility="public" complexity="1" crap="1" count="8"/>
       <line num="21" type="stmt" count="8"/>
       <line num="23" type="stmt" count="8"/>
-      <line num="25" type="stmt" count="8"/>
-      <metrics loc="28" ncloc="28" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+      <metrics loc="26" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
     </file>
     <file name="/app/src/Service/Validator/TravelPriceEnquiryValidator.php">
       <class name="App\Service\Validator\TravelPriceEnquiryValidator" namespace="global">
@@ -204,6 +203,6 @@
       <line num="34" type="stmt" count="2"/>
       <metrics loc="38" ncloc="38" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="9" elements="12" coveredelements="9"/>
     </file>
-    <metrics files="12" loc="460" ncloc="459" classes="8" methods="23" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="114" coveredstatements="103" elements="137" coveredelements="119"/>
+    <metrics files="12" loc="457" ncloc="456" classes="8" methods="23" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="113" coveredstatements="102" elements="136" coveredelements="118"/>
   </project>
 </coverage>
