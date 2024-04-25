@@ -19,20 +19,20 @@ class AgeDiscount extends AbstractDiscount
     {
         $ageDiscountRules = $this->AgeDiscountRuleRepository->findAll();
 
-        $now = new \DateTime();
+        $travelStartDate = new \DateTime($priceEnquiry->getTravelStart());
 
         $participantBirthday = new \DateTime($priceEnquiry->getParticipantBirthday());
 
-        $currentAge = $now->diff($participantBirthday)->y;
+        $participantAge = $travelStartDate->diff($participantBirthday)->y;
 
         foreach ($ageDiscountRules as $ageDiscountRule) {
             if (
                 !$ageDiscountRule->isActive() ||
                 !$ageDiscountRule->isValid() ||
                 ($ageDiscountRule->getMinAgeLimit() &&
-                    ($ageDiscountRule->getMinAgeLimit() > $currentAge)) ||
+                    ($ageDiscountRule->getMinAgeLimit() > $participantAge)) ||
                 ($ageDiscountRule->getMaxAgeLimit() &&
-                    ($ageDiscountRule->getMaxAgeLimit() <= $currentAge))
+                    ($ageDiscountRule->getMaxAgeLimit() <= $participantAge))
             ) {
                 continue;
             }

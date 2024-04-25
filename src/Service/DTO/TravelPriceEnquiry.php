@@ -19,7 +19,7 @@ class TravelPriceEnquiry implements PriceEnquiryInterface
     private string $paymentDate;
 
     public function __construct(
-        ?string $basePrice,
+        string|int $basePrice,
 
         ?string $participantBirthday,
 

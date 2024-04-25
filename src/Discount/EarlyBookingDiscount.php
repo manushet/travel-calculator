@@ -18,39 +18,68 @@ class EarlyBookingDiscount extends AbstractDiscount
     public function apply(PriceEnquiryInterface $priceEnquiry): PriceEnquiryInterface
     {
 
+        $travelDate = $priceEnquiry->getTravelStart();
+        $travelDateMonth = substr($priceEnquiry->getTravelStart(), 5);
+        $travelDateYear = (int)substr($priceEnquiry->getTravelStart(), 0, 4);
+
+        $paymentDate = $priceEnquiry->getPaymentDate();
+        $paymentDateMonth = substr($priceEnquiry->getPaymentDate(), 5);
+        $paymentDateYear = (int)substr($priceEnquiry->getPaymentDate(), 0, 4);
+
+        if ($paymentDate >= $travelDate) {
+            return $priceEnquiry;
+        }
+
         $earlyBookingRangeRules = $this->earlyBookingRangeRuleRepository->findAll();
 
         foreach ($earlyBookingRangeRules as $earlyBookingRangeRule) {
-            $travelDate = $priceEnquiry->getTravelStart();
 
-            $shouldBookFrom = $earlyBookingRangeRule->getBookingNormalizedDateFrom();
+            $shouldBookFrom = $earlyBookingRangeRule->getBookingDateFrom();
 
-            $shouldBookTo = $earlyBookingRangeRule->getBookingNormalizedDateTo();
+            $shouldBookTo = $earlyBookingRangeRule->getBookingDateTo();
 
-            if (
-                ($shouldBookFrom && ($travelDate < $shouldBookFrom)) ||
-                ($shouldBookTo && ($travelDate > $shouldBookTo))
-            ) {
-                continue;
+            if ($shouldBookTo) {
+                if ($shouldBookTo < $shouldBookFrom) {
+                    if (($travelDateMonth < $shouldBookFrom) && ($travelDateMonth > $shouldBookTo)) {
+                        continue;
+                    }
+                } else {
+                    if (($travelDateMonth < $shouldBookFrom) || ($travelDateMonth > $shouldBookTo)) {
+                        continue;
+                    }
+                }
+            } else {
+                if ($travelDateMonth < $shouldBookFrom) {
+                    continue;
+                }
             }
 
             $earlyBookingDiscountRules = $earlyBookingRangeRule->getEarlyBookingDiscountRules();
 
             foreach ($earlyBookingDiscountRules as $earlyBookingDiscountRule) {
 
-                $paymentDate = $priceEnquiry->getPaymentDate();
-
-                $shouldPayFrom = $earlyBookingDiscountRule->getPaymentNormalizedDateFrom();
-
-                $shouldPayTo = $earlyBookingDiscountRule->getPaymentNormalizedDateTo();
-
-                if (
-                    !$earlyBookingDiscountRule->isActive() ||
-                    !$earlyBookingDiscountRule->isValid() ||
-                    ($shouldPayFrom && ($paymentDate < $shouldPayFrom)) ||
-                    ($shouldPayTo && ($paymentDate > $shouldPayTo))
-                ) {
+                if (!$earlyBookingDiscountRule->isActive() || !$earlyBookingDiscountRule->isValid()) {
                     continue;
+                }
+
+                $shouldPayFrom = $earlyBookingDiscountRule->getPaymentDateFrom();
+
+                $shouldPayTo = $earlyBookingDiscountRule->getPaymentDateTo();
+
+                if ($shouldPayFrom) {
+                    if ($shouldPayTo < $shouldPayFrom) {
+                        if (($paymentDateMonth < $shouldPayFrom) && ($paymentDateMonth > $shouldPayTo)) {
+                            continue;
+                        }
+                    } else {
+                        if (($paymentDateMonth < $shouldPayFrom) || ($paymentDateMonth > $shouldPayTo)) {
+                            continue;
+                        }
+                    }
+                } else {
+                    if ((($travelDateYear - $paymentDateYear) <= 1) && ($paymentDateMonth > $shouldPayTo)) {
+                        continue;
+                    }
                 }
 
                 $discountAmount = $priceEnquiry->getFinalPrice() * $earlyBookingDiscountRule->getModifier();
@@ -63,7 +92,7 @@ class EarlyBookingDiscount extends AbstractDiscount
 
                 $priceEnquiry->setFinalPrice($finalPrice);
 
-                break;
+                return $priceEnquiry;
             }
         }
         return $priceEnquiry;

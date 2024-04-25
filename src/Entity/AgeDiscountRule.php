@@ -12,7 +12,7 @@ class AgeDiscountRule
     use DiscountValidatorTrait;
 
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
     #[ORM\Column]
     private ?int $id = null;
 
@@ -32,6 +32,11 @@ class AgeDiscountRule
     {
         return $this->id;
     }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }    
 
     public function getMinAgeLimit(): ?int
     {

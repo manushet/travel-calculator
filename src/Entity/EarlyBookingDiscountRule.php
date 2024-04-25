@@ -14,21 +14,15 @@ class EarlyBookingDiscountRule
     use DiscountValidatorTrait;
 
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(length: 5)]
     private ?string $paymentDateFrom = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $paymentYearFrom = null;
-
     #[ORM\Column(length: 5)]
     private ?string $paymentDateTo = null;
-
-    #[ORM\Column(length: 25)]
-    private ?string $paymentYearTo = null;
 
     #[ORM\Column]
     private ?float $modifier = null;
@@ -44,6 +38,11 @@ class EarlyBookingDiscountRule
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getPaymentDateFrom(): ?string
@@ -94,30 +93,6 @@ class EarlyBookingDiscountRule
         return $this;
     }
 
-    public function getPaymentYearFrom(): ?string
-    {
-        return $this->paymentYearFrom;
-    }
-
-    public function setPaymentYearFrom(string $paymentYearFrom): static
-    {
-        $this->paymentYearFrom = $paymentYearFrom;
-
-        return $this;
-    }
-
-    public function getPaymentYearTo(): ?string
-    {
-        return $this->paymentYearTo;
-    }
-
-    public function setPaymentYearTo(string $paymentYearTo): static
-    {
-        $this->paymentYearTo = $paymentYearTo;
-
-        return $this;
-    }
-
 
     public function getEarlyBookingRangeRule(): ?EarlyBookingRangeRule
     {
@@ -129,29 +104,5 @@ class EarlyBookingDiscountRule
         $this->earlyBookingRangeRule = $earlyBookingRangeRule;
 
         return $this;
-    }
-
-    public function getPaymentNormalizedDateFrom(): ?string
-    {
-        if ($this->paymentYearFrom && $this->paymentDateFrom) {
-            $paymentYearFrom = $this->paymentYearFrom === 'next'
-                ? (new \DateTime())->add(new \DateInterval('P1Y'))->format('Y')
-                : (new \DateTime())->format('Y');
-
-            return $paymentYearFrom . '-' . $this->paymentDateFrom;
-        }
-        return null;
-    }
-
-    public function getPaymentNormalizedDateTo(): ?string
-    {
-        if ($this->paymentYearTo && $this->paymentDateTo) {
-            $paymentYearTo = $this->paymentYearTo === 'next'
-                ? (new \DateTime())->add(new \DateInterval('P1Y'))->format('Y')
-                : (new \DateTime())->format('Y');
-
-            return $paymentYearTo . '-' . $this->paymentDateTo;
-        }
-        return null;
     }
 }

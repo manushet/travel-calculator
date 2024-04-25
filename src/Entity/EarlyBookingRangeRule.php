@@ -11,21 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
 class EarlyBookingRangeRule
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(length: 5)]
     private ?string $bookingDateFrom = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $bookingYearFrom = null;
-
     #[ORM\Column(length: 5)]
     private ?string $bookingDateTo = null;
-
-    #[ORM\Column(length: 25)]
-    private ?string $bookingYearTo = null;
 
     /**
      * @var Collection<int, EarlyBookingDiscountRule>
@@ -41,6 +35,11 @@ class EarlyBookingRangeRule
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getBookingDateFrom(): ?string
@@ -66,31 +65,6 @@ class EarlyBookingRangeRule
 
         return $this;
     }
-
-    public function getBookingYearFrom(): ?string
-    {
-        return $this->bookingYearFrom;
-    }
-
-    public function setBookingYearFrom(string $bookingYearFrom): static
-    {
-        $this->bookingYearFrom = $bookingYearFrom;
-
-        return $this;
-    }
-
-    public function getBookingYearTo(): ?string
-    {
-        return $this->bookingYearTo;
-    }
-
-    public function setBookingYearTo(string $bookingYearTo): static
-    {
-        $this->bookingYearTo = $bookingYearTo;
-
-        return $this;
-    }
-
 
     /**
      * @return Collection<int, EarlyBookingDiscountRule>
@@ -120,28 +94,5 @@ class EarlyBookingRangeRule
         }
 
         return $this;
-    }
-    public function getBookingNormalizedDateFrom(): ?string
-    {
-        if ($this->bookingYearFrom && $this->bookingDateFrom) {
-            $bookingYearFrom = $this->bookingYearFrom === 'next'
-                ? (new \DateTime())->add(new \DateInterval('P1Y'))->format('Y')
-                : (new \DateTime())->format('Y');
-
-            return $bookingYearFrom . '-' . $this->bookingDateFrom;
-        }
-        return null;
-    }
-
-    public function getBookingNormalizedDateTo(): ?string
-    {
-        if ($this->bookingYearTo && $this->bookingDateTo) {
-            $bookingYearTo = $this->bookingYearTo === 'next'
-                ? (new \DateTime())->add(new \DateInterval('P1Y'))->format('Y')
-                : (new \DateTime())->format('Y');
-
-            return $bookingYearTo . '-' . $this->bookingDateTo;
-        }
-        return null;
     }
 }

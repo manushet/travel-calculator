@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /app/src/Entity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/app/src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Entity</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#10">App\Entity\EarlyBookingRangeRule</a></td><td class="text-right">16%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#11">App\Entity\EarlyBookingDiscountRule</a></td><td class="text-right">23%</td></tr>
+       <tr><td><a href="AgeDiscountRule.php.html#9">App\Entity\AgeDiscountRule</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#10">App\Entity\DiscountValidatorTrait</a></td><td class="text-right">35%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#10">App\Entity\EarlyBookingRangeRule</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#10">App\Entity\DiscountValidatorTrait</a></td><td class="text-right">43</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AgeDiscountRule.php.html#31"><abbr title="App\Entity\AgeDiscountRule::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AgeDiscountRule.php.html#36"><abbr title="App\Entity\AgeDiscountRule::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AgeDiscountRule.php.html#46"><abbr title="App\Entity\AgeDiscountRule::setMinAgeLimit">setMinAgeLimit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AgeDiscountRule.php.html#58"><abbr title="App\Entity\AgeDiscountRule::setMaxAgeLimit">setMaxAgeLimit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AgeDiscountRule.php.html#70"><abbr title="App\Entity\AgeDiscountRule::setModifier">setModifier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AgeDiscountRule.php.html#82"><abbr title="App\Entity\AgeDiscountRule::setAmountLimit">setAmountLimit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#38"><abbr title="App\Entity\EarlyBookingDiscountRule::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#43"><abbr title="App\Entity\EarlyBookingDiscountRule::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#53"><abbr title="App\Entity\EarlyBookingDiscountRule::setPaymentDateFrom">setPaymentDateFrom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#65"><abbr title="App\Entity\EarlyBookingDiscountRule::setPaymentDateTo">setPaymentDateTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#77"><abbr title="App\Entity\EarlyBookingDiscountRule::setModifier">setModifier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#89"><abbr title="App\Entity\EarlyBookingDiscountRule::setAmountLimit">setAmountLimit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#97"><abbr title="App\Entity\EarlyBookingDiscountRule::getEarlyBookingRangeRule">getEarlyBookingRangeRule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingDiscountRule.php.html#102"><abbr title="App\Entity\EarlyBookingDiscountRule::setEarlyBookingRangeRule">setEarlyBookingRangeRule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#30"><abbr title="App\Entity\EarlyBookingRangeRule::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#35"><abbr title="App\Entity\EarlyBookingRangeRule::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#40"><abbr title="App\Entity\EarlyBookingRangeRule::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#50"><abbr title="App\Entity\EarlyBookingRangeRule::setBookingDateFrom">setBookingDateFrom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#62"><abbr title="App\Entity\EarlyBookingRangeRule::setBookingDateTo">setBookingDateTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#77"><abbr title="App\Entity\EarlyBookingRangeRule::addEarlyBookingPaymentDiscountRule">addEarlyBookingPaymentDiscountRule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#87"><abbr title="App\Entity\EarlyBookingRangeRule::removeEarlyBookingDiscountRule">removeEarlyBookingDiscountRule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#26"><abbr title="App\Entity\DiscountValidatorTrait::setActive">setActive</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#33"><abbr title="App\Entity\DiscountValidatorTrait::getValidDateFrom">getValidDateFrom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#38"><abbr title="App\Entity\DiscountValidatorTrait::setValidDateFrom">setValidDateFrom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#45"><abbr title="App\Entity\DiscountValidatorTrait::getValidDateTo">getValidDateTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#50"><abbr title="App\Entity\DiscountValidatorTrait::setValidDateTo">setValidDateTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#57"><abbr title="App\Entity\DiscountValidatorTrait::isValid">isValid</abbr></a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#87"><abbr title="App\Entity\EarlyBookingRangeRule::removeEarlyBookingDiscountRule">removeEarlyBookingDiscountRule</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="EarlyBookingRangeRule.php.html#77"><abbr title="App\Entity\EarlyBookingRangeRule::addEarlyBookingPaymentDiscountRule">addEarlyBookingPaymentDiscountRule</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DiscountValidatorTrait.php.html#57"><abbr title="App\Entity\DiscountValidatorTrait::isValid">isValid</abbr></a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.31</a> using <a href="https://secure.php.net/" target="_top">PHP 8.3.4</a> and <a href="https://phpunit.de/">PHPUnit 9.6.19</a> at Thu Apr 25 7:00:26 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js?v=9.2.31" type="text/javascript"></script>
+  <script src="../_js/d3.min.js?v=9.2.31" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js?v=9.2.31" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,0,1,2,1,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([26,0,0,0,0,0,0,0,0,1,0,12], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[28.57142857142857,10,"<a href=\"AgeDiscountRule.php.html#9\">App\\Entity\\AgeDiscountRule<\/a>"],[23.52941176470588,12,"<a href=\"EarlyBookingDiscountRule.php.html#11\">App\\Entity\\EarlyBookingDiscountRule<\/a>"],[16.666666666666664,13,"<a href=\"EarlyBookingRangeRule.php.html#10\">App\\Entity\\EarlyBookingRangeRule<\/a>"],[35.714285714285715,11,"<a href=\"DiscountValidatorTrait.php.html#10\">App\\Entity\\DiscountValidatorTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"AgeDiscountRule.php.html#31\">App\\Entity\\AgeDiscountRule::getId<\/a>"],[0,1,"<a href=\"AgeDiscountRule.php.html#36\">App\\Entity\\AgeDiscountRule::setId<\/a>"],[100,1,"<a href=\"AgeDiscountRule.php.html#41\">App\\Entity\\AgeDiscountRule::getMinAgeLimit<\/a>"],[0,1,"<a href=\"AgeDiscountRule.php.html#46\">App\\Entity\\AgeDiscountRule::setMinAgeLimit<\/a>"],[100,1,"<a href=\"AgeDiscountRule.php.html#53\">App\\Entity\\AgeDiscountRule::getMaxAgeLimit<\/a>"],[0,1,"<a href=\"AgeDiscountRule.php.html#58\">App\\Entity\\AgeDiscountRule::setMaxAgeLimit<\/a>"],[100,1,"<a href=\"AgeDiscountRule.php.html#65\">App\\Entity\\AgeDiscountRule::getModifier<\/a>"],[0,1,"<a href=\"AgeDiscountRule.php.html#70\">App\\Entity\\AgeDiscountRule::setModifier<\/a>"],[100,1,"<a href=\"AgeDiscountRule.php.html#77\">App\\Entity\\AgeDiscountRule::getAmountLimit<\/a>"],[0,1,"<a href=\"AgeDiscountRule.php.html#82\">App\\Entity\\AgeDiscountRule::setAmountLimit<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#38\">App\\Entity\\EarlyBookingDiscountRule::getId<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#43\">App\\Entity\\EarlyBookingDiscountRule::setId<\/a>"],[100,1,"<a href=\"EarlyBookingDiscountRule.php.html#48\">App\\Entity\\EarlyBookingDiscountRule::getPaymentDateFrom<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#53\">App\\Entity\\EarlyBookingDiscountRule::setPaymentDateFrom<\/a>"],[100,1,"<a href=\"EarlyBookingDiscountRule.php.html#60\">App\\Entity\\EarlyBookingDiscountRule::getPaymentDateTo<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#65\">App\\Entity\\EarlyBookingDiscountRule::setPaymentDateTo<\/a>"],[100,1,"<a href=\"EarlyBookingDiscountRule.php.html#72\">App\\Entity\\EarlyBookingDiscountRule::getModifier<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#77\">App\\Entity\\EarlyBookingDiscountRule::setModifier<\/a>"],[100,1,"<a href=\"EarlyBookingDiscountRule.php.html#84\">App\\Entity\\EarlyBookingDiscountRule::getAmountLimit<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#89\">App\\Entity\\EarlyBookingDiscountRule::setAmountLimit<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#97\">App\\Entity\\EarlyBookingDiscountRule::getEarlyBookingRangeRule<\/a>"],[0,1,"<a href=\"EarlyBookingDiscountRule.php.html#102\">App\\Entity\\EarlyBookingDiscountRule::setEarlyBookingRangeRule<\/a>"],[0,1,"<a href=\"EarlyBookingRangeRule.php.html#30\">App\\Entity\\EarlyBookingRangeRule::__construct<\/a>"],[0,1,"<a href=\"EarlyBookingRangeRule.php.html#35\">App\\Entity\\EarlyBookingRangeRule::getId<\/a>"],[0,1,"<a href=\"EarlyBookingRangeRule.php.html#40\">App\\Entity\\EarlyBookingRangeRule::setId<\/a>"],[100,1,"<a href=\"EarlyBookingRangeRule.php.html#45\">App\\Entity\\EarlyBookingRangeRule::getBookingDateFrom<\/a>"],[0,1,"<a href=\"EarlyBookingRangeRule.php.html#50\">App\\Entity\\EarlyBookingRangeRule::setBookingDateFrom<\/a>"],[100,1,"<a href=\"EarlyBookingRangeRule.php.html#57\">App\\Entity\\EarlyBookingRangeRule::getBookingDateTo<\/a>"],[0,1,"<a href=\"EarlyBookingRangeRule.php.html#62\">App\\Entity\\EarlyBookingRangeRule::setBookingDateTo<\/a>"],[100,1,"<a href=\"EarlyBookingRangeRule.php.html#72\">App\\Entity\\EarlyBookingRangeRule::getEarlyBookingDiscountRules<\/a>"],[0,2,"<a href=\"EarlyBookingRangeRule.php.html#77\">App\\Entity\\EarlyBookingRangeRule::addEarlyBookingPaymentDiscountRule<\/a>"],[0,3,"<a href=\"EarlyBookingRangeRule.php.html#87\">App\\Entity\\EarlyBookingRangeRule::removeEarlyBookingDiscountRule<\/a>"],[100,1,"<a href=\"DiscountValidatorTrait.php.html#21\">App\\Entity\\DiscountValidatorTrait::isActive<\/a>"],[0,1,"<a href=\"DiscountValidatorTrait.php.html#26\">App\\Entity\\DiscountValidatorTrait::setActive<\/a>"],[0,1,"<a href=\"DiscountValidatorTrait.php.html#33\">App\\Entity\\DiscountValidatorTrait::getValidDateFrom<\/a>"],[0,1,"<a href=\"DiscountValidatorTrait.php.html#38\">App\\Entity\\DiscountValidatorTrait::setValidDateFrom<\/a>"],[0,1,"<a href=\"DiscountValidatorTrait.php.html#45\">App\\Entity\\DiscountValidatorTrait::getValidDateTo<\/a>"],[0,1,"<a href=\"DiscountValidatorTrait.php.html#50\">App\\Entity\\DiscountValidatorTrait::setValidDateTo<\/a>"],[80,5,"<a href=\"DiscountValidatorTrait.php.html#57\">App\\Entity\\DiscountValidatorTrait::isValid<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
