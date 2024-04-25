@@ -13,7 +13,7 @@ class AgeDiscountRuleFixtures extends Fixture
         $ageDiscountRule = new AgeDiscountRule();
         $ageDiscountRule->setMinAgeLimit(3);
         $ageDiscountRule->setMaxAgeLimit(6);
-        $ageDiscountRule->setAmountLimit(4500);
+        $ageDiscountRule->setAmountLimit(0);
         $ageDiscountRule->setModifier(0.8);
         $ageDiscountRule->setActive(true);
         $manager->persist($ageDiscountRule);
@@ -21,7 +21,7 @@ class AgeDiscountRuleFixtures extends Fixture
         $ageDiscountRule = new AgeDiscountRule();
         $ageDiscountRule->setMinAgeLimit(6);
         $ageDiscountRule->setMaxAgeLimit(12);
-        $ageDiscountRule->setAmountLimit(0);
+        $ageDiscountRule->setAmountLimit(4500);
         $ageDiscountRule->setModifier(0.3);
         $ageDiscountRule->setActive(true);
         $manager->persist($ageDiscountRule);
