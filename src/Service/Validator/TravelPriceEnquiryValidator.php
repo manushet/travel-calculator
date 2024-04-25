@@ -5,31 +5,33 @@ declare(strict_types=1);
 namespace App\Service\Validator;
 
 use App\Service\DTO\PriceEnquiryInterface;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use App\Exception\InvalidEnquiryParametersException;
 
 class TravelPriceEnquiryValidator
 {
 
     public function validate(PriceEnquiryInterface $priceEnquiry): void
     {
+        $errMsg = [];
+
         if (!$priceEnquiry->getBasePrice()) {
-            throw new BadRequestHttpException('Incorrect basePrice value');
+            $errMsg[] = 'Invalid Base Price value.';
         }
 
         if (!preg_match('/^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$/', $priceEnquiry->getParticipantBirthday())) {
-            throw new BadRequestHttpException('Incorrect participantBirthday date format');
-        }
-
-        if (!preg_match('/^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$/', $priceEnquiry->getParticipantBirthday())) {
-            throw new BadRequestHttpException('Incorrect participantBirthday date format');
+            $errMsg[] = 'Invalid Participant Birthday date format.';
         }
 
         if (!preg_match('/^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$/', $priceEnquiry->getTravelStart())) {
-            throw new BadRequestHttpException('Incorrect travelStart date format');
+            $errMsg[] = 'Invalid travelStart date format.';
         }
 
         if (!preg_match('/^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$/', $priceEnquiry->getPaymentDate())) {
-            throw new BadRequestHttpException('Incorrect paymentDate date format');
+            $errMsg[] = 'Invalid paymentDate date format.';
+        }
+
+        if (count($errMsg) > 0) {
+            throw new InvalidEnquiryParametersException(implode(" ", $errMsg));
         }
     }
 }

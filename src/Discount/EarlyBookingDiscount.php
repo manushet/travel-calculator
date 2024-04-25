@@ -88,9 +88,7 @@ class EarlyBookingDiscount extends AbstractDiscount
                     ? min($earlyBookingDiscountRule->getAmountLimit(), $discountAmount)
                     : $discountAmount;
 
-                $finalPrice = $priceEnquiry->getFinalPrice() - $discountAmount;
-
-                $priceEnquiry->setFinalPrice($finalPrice);
+                $priceEnquiry->setFinalPrice($priceEnquiry->getFinalPrice() - $discountAmount);
 
                 return $priceEnquiry;
             }

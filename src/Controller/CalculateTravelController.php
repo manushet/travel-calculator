@@ -23,22 +23,17 @@ class CalculateTravelController extends AbstractController
     ) {
     }
 
-    //я выбрала GET в соответствие с RESTful, но наверное для частного API будет удобнее и POST 
+    //я выбрала GET в соответствие с RESTful, но наверное для приватного API будет удобнее и POST 
     #[Route('/calculate-travel', name: 'calculate_travel', methods: ['GET'])]
     public function calculatePrice(#[MapQueryString] TravelPriceEnquiry $travelPriceEnquiry): JsonResponse
     {
-        try {
-            $this->priceEnquiryValidator->validate($travelPriceEnquiry);
+        $this->priceEnquiryValidator->validate($travelPriceEnquiry);
 
-            $finalPriceEnquiry = $this->travelPriceCalculator->calculate($travelPriceEnquiry);
+        $responseContent = $this->serializer->serialize(
+            $this->travelPriceCalculator->calculate($travelPriceEnquiry),
+            'json'
+        );
 
-            $responseContent = $this->serializer->serialize($finalPriceEnquiry, 'json');
-
-            return new JsonResponse($responseContent);
-        } catch (\Exception $e) {
-            $responseContent = ["error" => $e->getMessage()];
-
-            return new JsonResponse(json_encode($responseContent));
-        }
+        return new JsonResponse($responseContent);
     }
 }
