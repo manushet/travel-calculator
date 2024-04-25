@@ -23,6 +23,7 @@ class CalculateTravelController extends AbstractController
     ) {
     }
 
+    //я выбрала GET в соответствие с RESTful, но наверное для частного API будет удобнее и POST 
     #[Route('/calculate-travel', name: 'calculate_travel', methods: ['GET'])]
     public function calculatePrice(#[MapQueryString] TravelPriceEnquiry $travelPriceEnquiry): JsonResponse
     {
