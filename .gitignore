@@ -1,63 +1,43 @@
-
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
-/phpunit.xml
+phpunit.xml
 ###< symfony/phpunit-bridge ###
 
 ###> phpunit/phpunit ###
-/phpunit.xml
+phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-# Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
-
 # Email spool folder
-/app/spool/*
+app/spool
 
 # Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-/var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
-
-# Logs (Symfony4)
-/var/log/*
-!var/log/.gitkeep
+var/cache
+var/log
+var/logs
+var/sessions
 
 # Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
+app/config/parameters.yml
+app/config/parameters.ini
 
 # Managed by Composer
-/app/bootstrap.php.cache
-/var/bootstrap.php.cache
-/bin/*
-!bin/console
-!bin/symfony_requirements
-/vendor/
+app/bootstrap.php.cache
+var/bootstrap.php.cache
 
 # Assets and user uploads
-/web/bundles/
-/web/uploads/
+web/bundles
+web/uploads
 
 # Build data
-/build/
+build/
 
 # Composer PHAR
-/composer.phar
-
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
+composer.phar
 
 # Embedded web-server pid file
-/.web-server-pid
+.web-server-pid
 
-/database_data/
-
-.env.test
+/vendor
+/bin
+/database_data
