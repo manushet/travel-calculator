@@ -23,11 +23,11 @@ class TravelPriceEnquiryValidator
         }
 
         if (!preg_match('/^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$/', $priceEnquiry->getTravelStart())) {
-            $errMsg[] = 'Invalid travelStart date format.';
+            $errMsg[] = 'Invalid Travel Start date format.';
         }
 
         if (!preg_match('/^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$/', $priceEnquiry->getPaymentDate())) {
-            $errMsg[] = 'Invalid paymentDate date format.';
+            $errMsg[] = 'Invalid Payment Date date format.';
         }
 
         if (count($errMsg) > 0) {

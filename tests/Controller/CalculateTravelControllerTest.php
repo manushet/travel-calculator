@@ -26,25 +26,25 @@ class CalculateTravelControllerTest extends WebTestCase
         $this->assertJsonStringEqualsJsonString($expectedResponseContent, $actualResponse);
     }
 
-    public function testIncorrectParticipantBirthdayFormatJsonResponseAPI(): void
+    public function testInvalidParticipantBirthdayFormatJsonResponseAPI(): void
     {
         $client = static::createClient();
 
         $client->request(
             'GET',
-            '/calculate-travel?basePrice=1000&participantBirthday=2000&travelStart=2025-01-10&paymentDate=2024-10-10'
+            '/calculate-travel?basePrice=10000&participantBirthday=2000&travelStart=2025-01-10&paymentDate=2024-10-10'
         );
 
-        $this->assertResponseIsSuccessful();
+        $expectedResponseContent = '{"error":"Invalid Participant Birthday date format."}';
 
-        $expectedResponseContent = json_encode("{\"error\":\"Incorrect participantBirthday date format\"}");
-
-        $actualResponse = json_encode(json_decode($client->getResponse()->getContent()), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $actualResponse = $client->getResponse()->getContent();
 
         $this->assertJsonStringEqualsJsonString($expectedResponseContent, $actualResponse);
+
+        $this->assertResponseStatusCodeSame(400);
     }
 
-    public function testIncorrectBasePriceJsonResponseAPI(): void
+    public function testInvalidBasePriceJsonResponseAPI(): void
     {
         $client = static::createClient();
 
@@ -53,12 +53,12 @@ class CalculateTravelControllerTest extends WebTestCase
             '/calculate-travel?basePrice=efe&participantBirthday=2018-09-18&travelStart=2025-01-10&paymentDate=2024-10-10'
         );
 
-        $this->assertResponseIsSuccessful();
+        $expectedResponseContent = '{"error":"Invalid Base Price value."}';
 
-        $expectedResponseContent = json_encode("{\"error\":\"Incorrect basePrice value\"}");
-
-        $actualResponse = json_encode(json_decode($client->getResponse()->getContent()), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $actualResponse = $client->getResponse()->getContent();
 
         $this->assertJsonStringEqualsJsonString($expectedResponseContent, $actualResponse);
+
+        $this->assertResponseStatusCodeSame(400);
     }
 }

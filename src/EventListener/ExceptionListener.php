@@ -21,7 +21,7 @@ class ExceptionListener
         $response = new JsonResponse();
 
         $response->setContent(json_encode([
-            "error" => $message
+            "errors" => $message
         ]));
 
         if ($exception instanceof InvalidEnquiryParametersException) {
