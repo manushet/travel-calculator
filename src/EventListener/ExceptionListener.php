@@ -15,17 +15,23 @@ class ExceptionListener
     {
         $exception = $event->getThrowable();
 
-        $message = $exception->getMessage();
-
         $response = new JsonResponse();
+
+
+
+        if ($exception instanceof InvalidEnquiryParametersException) {
+            $message = $exception->getMessage();
+
+            $response->setStatusCode(Response::HTTP_BAD_REQUEST);
+        } else {
+            $message = "An internal error occured.";
+
+            $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
 
         $response->setContent(json_encode([
             "errors" => $message
         ]));
-
-        if ($exception instanceof InvalidEnquiryParametersException) {
-            $response->setStatusCode(Response::HTTP_BAD_REQUEST);
-        }
 
         $event->setResponse($response);
     }

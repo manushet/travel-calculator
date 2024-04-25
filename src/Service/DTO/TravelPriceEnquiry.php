@@ -8,29 +8,37 @@ use App\Service\DTO\PriceEnquiryInterface;
 
 class TravelPriceEnquiry implements PriceEnquiryInterface
 {
-    private ?int $basePrice;
+    private int $basePrice;
 
-    private ?float $finalPrice;
+    private float $finalPrice;
 
     private string $participantBirthday;
 
-    private string $travelStart;
+    private ?string $travelStart;
 
-    private string $paymentDate;
+    private ?string $paymentDate;
 
     public function __construct(
         string|int $basePrice,
 
-        ?string $participantBirthday,
+        string $participantBirthday,
 
         ?string $travelStart,
 
         ?string $paymentDate
     ) {
         $this->basePrice = (int)$basePrice;
+
         $this->finalPrice = (float)$basePrice;
+
         $this->participantBirthday = $participantBirthday;
-        $this->travelStart = $travelStart;
+
+        if (null == $travelStart) {
+            $this->travelStart = (new \DateTime())->format("Y-m-d");
+        } else {
+            $this->travelStart = $travelStart;
+        }
+
         $this->paymentDate = $paymentDate;
     }
 
@@ -66,7 +74,7 @@ class TravelPriceEnquiry implements PriceEnquiryInterface
 
     public function getTravelStart(): string
     {
-        return $this->travelStart;
+        return $this->travelStart ? $this->travelStart : (new \DateTime())->format("Y-m-d");
     }
 
     public function setTravelStart(string $travelStart): void
@@ -74,7 +82,7 @@ class TravelPriceEnquiry implements PriceEnquiryInterface
         $this->travelStart = $travelStart;
     }
 
-    public function getPaymentDate(): string
+    public function getPaymentDate(): ?string
     {
         return $this->paymentDate;
     }

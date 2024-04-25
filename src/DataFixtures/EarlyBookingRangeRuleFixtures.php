@@ -13,6 +13,7 @@ class EarlyBookingRangeRuleFixtures extends Fixture
     {
         $earlyBookingRangeRule = new EarlyBookingRangeRule();
         $earlyBookingRangeRule->setBookingDateFrom('04-01');
+        $earlyBookingRangeRule->setIsBookingYearFromNext(true);
         $earlyBookingRangeRule->setBookingDateTo('09-30');
         $manager->persist($earlyBookingRangeRule);
 
@@ -43,6 +44,7 @@ class EarlyBookingRangeRuleFixtures extends Fixture
 
         $earlyBookingRangeRule = new EarlyBookingRangeRule();
         $earlyBookingRangeRule->setBookingDateFrom('01-15');
+        $earlyBookingRangeRule->setIsBookingYearFromNext(true);
         $earlyBookingRangeRule->setBookingDateTo('');
         $manager->persist($earlyBookingRangeRule);
 
@@ -73,6 +75,7 @@ class EarlyBookingRangeRuleFixtures extends Fixture
 
         $earlyBookingRangeRule = new EarlyBookingRangeRule();
         $earlyBookingRangeRule->setBookingDateFrom('10-01');
+        $earlyBookingRangeRule->setIsBookingYearFromNext(false);
         $earlyBookingRangeRule->setBookingDateTo('01-14');
         $manager->persist($earlyBookingRangeRule);
 
@@ -99,8 +102,6 @@ class EarlyBookingRangeRuleFixtures extends Fixture
         $earlyBookingDiscountRule->setAmountLimit(1500);
         $earlyBookingDiscountRule->setModifier(0.03);
         $manager->persist($earlyBookingDiscountRule);
-
-
 
         $manager->flush();
     }

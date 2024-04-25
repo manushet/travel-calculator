@@ -21,7 +21,7 @@ class AgeDiscountRuleFixtures extends Fixture
         $ageDiscountRule = new AgeDiscountRule();
         $ageDiscountRule->setMinAgeLimit(6);
         $ageDiscountRule->setMaxAgeLimit(12);
-        $ageDiscountRule->setAmountLimit(2000);
+        $ageDiscountRule->setAmountLimit(0);
         $ageDiscountRule->setModifier(0.3);
         $ageDiscountRule->setActive(true);
         $manager->persist($ageDiscountRule);

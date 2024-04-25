@@ -164,4 +164,74 @@ class TravelPriceCalculatorTest extends ServiceTestCase
         $this->assertSame($travelPriceEnquiry->getParticipantBirthday(), $finalPriceEnquiry->getParticipantBirthday());
         $this->assertSame($expectedFinalPrice, $finalPriceEnquiry->getFinalPrice());
     }
+
+    public function testTravelPriceCalculateWithNoPaymentDate(): void
+    {
+        $travelPriceCalculator = $this->container->get(TravelPriceCalculator::class);
+
+        $travelPriceEnquiry = new TravelPriceEnquiry(
+            50000,
+            '2011-09-17',
+            '2024-10-21',
+            null
+        );
+
+        $expectedFinalPrice = (float)45000;
+
+        $finalPriceEnquiry = $travelPriceCalculator->calculate($travelPriceEnquiry);
+
+        $this->assertSame($travelPriceEnquiry->getBasePrice(), $finalPriceEnquiry->getBasePrice());
+        $this->assertSame($travelPriceEnquiry->getTravelStart(), $finalPriceEnquiry->getTravelStart());
+        $this->assertSame(null, $finalPriceEnquiry->getPaymentDate());
+        $this->assertSame($travelPriceEnquiry->getParticipantBirthday(), $finalPriceEnquiry->getParticipantBirthday());
+        $this->assertSame($expectedFinalPrice, $finalPriceEnquiry->getFinalPrice());
+    }
+
+    public function testTravelPriceCalculateWithNoTravelStartDate(): void
+    {
+        $travelPriceCalculator = $this->container->get(TravelPriceCalculator::class);
+
+        $travelPriceEnquiry = new TravelPriceEnquiry(
+            50000,
+            '2011-09-17',
+            null,
+            '2024-01-01'
+        );
+
+        $expectedFinalPrice = (float)45000;
+
+        $finalPriceEnquiry = $travelPriceCalculator->calculate($travelPriceEnquiry);
+
+        $expectedTravelStartDate = (new \DateTime())->format("Y-m-d");
+
+        $this->assertSame($travelPriceEnquiry->getBasePrice(), $finalPriceEnquiry->getBasePrice());
+        $this->assertSame($expectedTravelStartDate, $finalPriceEnquiry->getTravelStart());
+        $this->assertSame($travelPriceEnquiry->getPaymentDate(), $finalPriceEnquiry->getPaymentDate());
+        $this->assertSame($travelPriceEnquiry->getParticipantBirthday(), $finalPriceEnquiry->getParticipantBirthday());
+        $this->assertSame($expectedFinalPrice, $finalPriceEnquiry->getFinalPrice());
+    }
+
+    public function testTravelPriceCalculateWithNoTravelStartDateAndNoPaymentDate(): void
+    {
+        $travelPriceCalculator = $this->container->get(TravelPriceCalculator::class);
+
+        $travelPriceEnquiry = new TravelPriceEnquiry(
+            50000,
+            '2002-09-17',
+            null,
+            null
+        );
+
+        $expectedFinalPrice = (float)50000;
+
+        $finalPriceEnquiry = $travelPriceCalculator->calculate($travelPriceEnquiry);
+
+        $expectedTravelStartDate = (new \DateTime())->format("Y-m-d");
+
+        $this->assertSame($travelPriceEnquiry->getBasePrice(), $finalPriceEnquiry->getBasePrice());
+        $this->assertSame($expectedTravelStartDate, $finalPriceEnquiry->getTravelStart());
+        $this->assertSame(null, $finalPriceEnquiry->getPaymentDate());
+        $this->assertSame($travelPriceEnquiry->getParticipantBirthday(), $finalPriceEnquiry->getParticipantBirthday());
+        $this->assertSame($expectedFinalPrice, $finalPriceEnquiry->getFinalPrice());
+    }
 }

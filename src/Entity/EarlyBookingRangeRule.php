@@ -18,6 +18,9 @@ class EarlyBookingRangeRule
     #[ORM\Column(length: 5)]
     private ?string $bookingDateFrom = null;
 
+    #[ORM\Column(length: 15)]
+    private bool $isBookingDateFromNext = true;
+
     #[ORM\Column(length: 5)]
     private ?string $bookingDateTo = null;
 
@@ -52,6 +55,16 @@ class EarlyBookingRangeRule
         $this->bookingDateFrom = $bookingDateFrom;
 
         return $this;
+    }
+
+    public function setIsBookingYearFromNext(bool $isBookingDateFromNext): void
+    {
+        $this->isBookingDateFromNext = $isBookingDateFromNext;
+    }
+
+    public function getIsBookingYearFromNext(): bool
+    {
+        return $this->isBookingDateFromNext;
     }
 
     public function getBookingDateTo(): ?string
